@@ -4,18 +4,18 @@
       <div class="product" v-for="product in products" :key="product.id">
         <div class="info">
           <h1>{{ product.name }}</h1>
-          <div class="attribute">{{ product.Attribute }}</div>
         </div>
-        <div class="image">
-          <img :src="'/images/products/' + product.image" />
-        </div>
-        <div class="price">
-          <div class="horziontal">
-            <div color="red">ATK: {{ product.ATK }}</div>
-            <div color="green">DEF: {{ product.DEF }}</div>
+        <div class="imageInfo">
+          <div class="image">
+            <img :src="'/images/products/' + product.image" />
           </div>
-          <button class="auto" v-on:click="cart(product)">Add to Deck</button>
+          <div class="horziontal">
+            <div class="cardInfo">ATK: {{ product.ATK }}</div>
+            <div class="cardInfo">DEF: {{ product.DEF }}</div>
+            <div class="attribute">Type: {{ product.Attribute }}</div>
+          </div>
         </div>
+        <button class="auto" v-on:click="cart(product)">Add to Deck</button>
       </div>
     </div>
   </div>
@@ -47,10 +47,16 @@ export default {
   justify-content: space-around;
 }
 
+.imageInfo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
 .product {
   margin: 10px;
   margin-top: 50px;
-  width: 200px;
+  width: 400px;
 }
 
 .product img {
@@ -60,6 +66,10 @@ export default {
   object-fit: cover;
 }
 
+.cardInfo {
+  margin: 10px;
+}
+
 .product .image {
   display: flex;
   justify-content: center;
@@ -67,23 +77,18 @@ export default {
 }
 
 .info {
-  background: #f2921d;
+  background-color: brown;
   color: #000;
-  padding: 10px 30px;
+  padding: 20px;
   height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info h1 {
-  font-size: 16px;
-}
-
-.info h2 {
-  font-size: 14px;
-}
-
-.info p {
-  margin: 0px;
-  font-size: 10px;
+  font-size: 20px;
+  color: white;
 }
 
 .price {
@@ -91,10 +96,12 @@ export default {
 }
 
 button {
+  width: 400px;
   height: 50px;
   background: #000;
   color: white;
   border: none;
+  font-size: 20px;
 }
 
 .auto {
@@ -103,11 +110,13 @@ button {
 
 .horziontal {
   flex-direction: row;
-  text-align: center;
   text-emphasis-style: bold;
+  font-size: 25px;
+  align-self: center;
+  margin-left: 15px;
 }
 
 .attribute {
-  text-align: bottom, center;
+  margin: 10px;
 }
 </style>

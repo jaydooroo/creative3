@@ -1,18 +1,18 @@
 <template>
   <div>
-    <div class="pure-menu pure-menu-horizontal">
-      <ul class="pure-menu-list">
-        <li class="pure-menu-item">
-          <a @click="select('Light')" href="#" class="pure-menu-link">Light</a>
+    <div class="typeMenus">
+      <ul class="type-list">
+        <li class="type-itemL">
+          <a @click="select('LIGHT')" href="#">Light</a>
         </li>
-        <li class="pure-menu-item">
-          <a @click="select('Dark')" href="#" class="pure-menu-link">Dark</a>
+        <li class="type-itemD">
+          <a @click="select('DARK')" href="#">Dark</a>
         </li>
-        <li class="pure-menu-item">
-          <a @click="select('Earth')" href="#" class="pure-menu-link">Earth</a>
+        <li class="type-itemE">
+          <a @click="select('EARTH')" href="#">Earth</a>
         </li>
-        <li class="pure-menu-item">
-          <a @click="select('Water')" href="#" class="pure-menu-link">Water</a>
+        <li class="type-itemW">
+          <a @click="select('WATER')" href="#">Water</a>
         </li>
       </ul>
     </div>
@@ -28,20 +28,67 @@ export default {
   },
   data() {
     return {
-      attribute: "",
+      Attribute: "",
     };
   },
   computed: {
     products() {
       return this.$root.$data.products.filter(
-        (product) => product.attribute === this.attribute
+        (product) => product.Attribute === this.Attribute
       );
     },
   },
   methods: {
-    select(attribute) {
-      this.attribute = attribute;
+    select(Attribute) {
+      this.Attribute = Attribute;
     },
   },
 };
 </script>
+<style>
+.typeMenus {
+  text-align: center;
+}
+
+.type-list {
+  list-style: none;
+}
+
+.type-itemL {
+  display: inline-block;
+  font-size: 65px;
+  margin: 5%;
+  padding: 4%;
+  background-color: rgb(223, 226, 39);
+  color: aquamarine;
+}
+.type-itemD {
+  display: inline-block;
+  font-size: 65px;
+  margin: 5%;
+  padding: 4%;
+  background-color: rgb(49, 40, 30);
+  color: white;
+}
+.type-itemE {
+  display: inline-block;
+  font-size: 65px;
+  margin: 5%;
+  padding: 4%;
+  background-color: rgb(183, 109, 19);
+  color: white;
+}
+.type-itemW {
+  display: inline-block;
+  font-size: 65px;
+  margin: 5%;
+  padding: 4%;
+  background-color: rgb(71, 118, 213);
+  color: white;
+}
+
+.type-list a {
+  color: white;
+  text-decoration: none;
+}
+</style>

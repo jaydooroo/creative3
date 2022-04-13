@@ -18,7 +18,7 @@
         <router-link to="/cart">
           <button class="Deck">
             <img src="/images/card-games.png" />
-            <p>{{ this.$root.$data.cart.length }}MY Deck</p>
+            <p>My Deck</p>
           </button>
         </router-link>
         <router-link to = "/Deck">

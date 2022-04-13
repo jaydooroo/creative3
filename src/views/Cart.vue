@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <div class="products">
-      <div v-if="isSuccess">
-        <h1>Your Shopping Cart</h1>
+    <div v-if="isSuccess">
+      <h1>Your Deck</h1>
+      <div class="products">
         <div
           class="product"
           v-for="product in this.$root.$data.cart"
@@ -10,20 +10,23 @@
         >
           <div class="info">
             <h1>{{ product.name }}</h1>
-            <p>{{ product.country }}</p>
           </div>
-          <div class="image">
-            <img :src="'/images/products/' + product.image" />
+          <div class="imageInfo">
+            <div class="image">
+              <img :src="'/images/products/' + product.image" />
+            </div>
+            <div class="horziontal">
+              <div class="cardInfo">ATK: {{ product.ATK }}</div>
+              <div class="cardInfo">DEF: {{ product.DEF }}</div>
+              <div class="attribute">Type: {{ product.Attribute }}</div>
+            </div>
           </div>
-          <div class="price">
-            <h2>{{ product.price }}</h2>
-            <button class="auto" v-on:click="remove(product.id)">Remove</button>
-          </div>
+          <button class="auto" v-on:click="cart(product)">Add to Deck</button>
         </div>
       </div>
-      <div v-else>
-        <h1>Shopping Cart is Empty</h1>
-      </div>
+    </div>
+    <div v-else>
+      <h1>Deck is Empty</h1>
     </div>
   </div>
 </template>
@@ -55,6 +58,7 @@ export default {
 </script>
 <style scoped>
 .wrapper {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -62,14 +66,20 @@ export default {
 .products {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.imageInfo {
+  display: flex;
+  justify-content: start;
   align-items: center;
-  justify-content: space-around;
 }
 
 .product {
   margin: 10px;
   margin-top: 50px;
-  width: 200px;
+  width: 400px;
 }
 
 .product img {
@@ -79,6 +89,10 @@ export default {
   object-fit: cover;
 }
 
+.cardInfo {
+  margin: 10px;
+}
+
 .product .image {
   display: flex;
   justify-content: center;
@@ -86,23 +100,18 @@ export default {
 }
 
 .info {
-  background: rgb(178, 178, 223);
+  background-color: brown;
   color: #000;
-  padding: 10px 30px;
+  padding: 20px;
   height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info h1 {
-  font-size: 16px;
-}
-
-.info h2 {
-  font-size: 14px;
-}
-
-.info p {
-  margin: 0px;
-  font-size: 10px;
+  font-size: 20px;
+  color: white;
 }
 
 .price {
@@ -110,13 +119,27 @@ export default {
 }
 
 button {
+  width: 400px;
   height: 50px;
   background: #000;
   color: white;
   border: none;
+  font-size: 20px;
 }
 
 .auto {
   margin-left: auto;
+}
+
+.horziontal {
+  flex-direction: row;
+  text-emphasis-style: bold;
+  font-size: 25px;
+  align-self: center;
+  margin-left: 15px;
+}
+
+.attribute {
+  margin: 10px;
 }
 </style>
