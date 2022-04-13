@@ -33,6 +33,8 @@
           <br>
           Phone Number: +1) 805-999-9999 
           <br>
+          pair programmer: Jehyeon Lee, Jonghyun Lee
+          <br>
           github:<a href = https://github.com/jaydooroo/creative3.git>https://github.com/jaydooroo/creative3.git</a>
       </footer>
   </div>
