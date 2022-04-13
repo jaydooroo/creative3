@@ -33,7 +33,7 @@
           <br>
           Phone Number: +1) 805-999-9999 
           <br>
-          github:<a href = https://github.com/jaydooroo/groceryProject.git>https://github.com/jaydooroo/groceryProject.git</a>
+          github:<a href = https://github.com/jaydooroo/creative3.git>https://github.com/jaydooroo/creative3.git</a>
       </footer>
   </div>
 </template>
